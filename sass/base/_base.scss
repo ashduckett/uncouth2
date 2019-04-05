@@ -1,0 +1,74 @@
+@font-face {
+    font-family: jamesFajardo;
+    src: url(../fonts/James_Fajardo.ttf);
+}
+
+
+/* Browser reset - normalize.css is not required anymore */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    //font-family: inherit;
+}
+
+html {
+    /* Override the root font size so rems can be used more easily. 62.5% is what 10px is as a % of 16px */
+    font-size: 62.5%;
+}
+
+body {
+    /* font-size: 16px; */
+    /* Also set font-family, font-weight, line-height and font colour here. */
+    box-sizing: border-box;
+    font-family: 'Gothic A1', sans-serif;
+    // font-family: jamesFajardo;
+    overflow-x: hidden;
+}
+
+.homepageOpener {
+    // background-color: green;
+    height: 100vh;
+
+    &__centerPiece {
+        position: absolute;
+        // height: 100px;
+        // width: 100px;
+        // background: yellow;
+        color: white;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    &__subTitle {
+        letter-spacing: 12px;
+        font-size: 1.8rem;
+        // margin-bottom: 5rem;
+    }
+
+    &__title {
+        font-size: 8rem;
+        font-family: 'Lobster', cursive;
+    }
+
+    &__services {
+        font-size: 1.8rem;
+        transform: translateY(10px);
+        margin-top: 6rem;
+    }
+
+
+}
+
+.transitionCover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+}

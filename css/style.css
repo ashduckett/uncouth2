@@ -1,0 +1,503 @@
+@font-face {
+  font-family: jamesFajardo;
+  src: url(../fonts/James_Fajardo.ttf); }
+
+/* Browser reset - normalize.css is not required anymore */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  /* Override the root font size so rems can be used more easily. 62.5% is what 10px is as a % of 16px */
+  font-size: 62.5%; }
+
+body {
+  /* font-size: 16px; */
+  /* Also set font-family, font-weight, line-height and font colour here. */
+  box-sizing: border-box;
+  font-family: 'Gothic A1', sans-serif;
+  overflow-x: hidden; }
+
+.homepageOpener {
+  height: 100vh; }
+  .homepageOpener__centerPiece {
+    position: absolute;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+  .homepageOpener__subTitle {
+    letter-spacing: 12px;
+    font-size: 1.8rem; }
+  .homepageOpener__title {
+    font-size: 8rem;
+    font-family: 'Lobster', cursive; }
+  .homepageOpener__services {
+    font-size: 1.8rem;
+    transform: translateY(10px);
+    margin-top: 6rem; }
+
+.transitionCover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: black; }
+
+@keyframes shiftHideMenu {
+  0% {
+    transform: translateX(0);
+    pointer-events: all; }
+  100% {
+    transform: translateX(50px);
+    opacity: 0;
+    pointer-events: none; } }
+
+@keyframes shiftShowMenu {
+  0% {
+    transform: translateX(50px);
+    opacity: 0; }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all; } }
+
+@keyframes shiftShowMobileMenu {
+  0% {
+    transform: translateX(50px);
+    opacity: 0; }
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+
+.nav {
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+  z-index: 1; }
+  .nav__branding {
+    color: white;
+    font-size: 3rem;
+    font-family: 'Lobster', cursive; }
+  .nav__menu {
+    list-style-type: none;
+    display: flex;
+    align-items: center; }
+    .nav__menu--hidden {
+      pointer-events: none; }
+      .nav__menu--hidden .nav__menu-item--hidden {
+        animation-name: shiftHideMenu;
+        animation-duration: .3s;
+        animation-fill-mode: forwards; }
+  .nav__menu-item {
+    display: inline-block; }
+    .nav__menu-item-link {
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: white;
+      position: relative; }
+      .nav__menu-item-link:after {
+        content: '';
+        height: 2px;
+        position: absolute;
+        background-color: red;
+        width: 0;
+        left: 0;
+        top: calc(100% + 2px);
+        transition: width .4s; }
+      .nav__menu-item-link:hover:after {
+        width: 100%; }
+    .nav__menu-item:not(:nth-last-child(3)) {
+      margin-right: 4rem; }
+    .nav__menu-item--show {
+      animation-name: shiftShowMenu;
+      animation-duration: .3s;
+      animation-fill-mode: backwards; }
+      .nav__menu-item--show.hamburger {
+        display: inline-block; }
+
+.nav__menu-item--hidden {
+  animation-name: shiftHideMenu;
+  animation-duration: .3s;
+  animation-fill-mode: forwards; }
+
+.hamburger {
+  transition: all 1s ease;
+  position: absolute;
+  left: 100%;
+  z-index: 2;
+  cursor: pointer; }
+  .hamburger.isActive .hamburger__altMenuContainer--show {
+    height: 5000px;
+    width: 5000px;
+    pointer-events: none; }
+  .hamburger--visible {
+    transform: translateX(calc(-100% - 4rem)); }
+  .hamburger .line {
+    width: 40px;
+    height: 2px;
+    display: block;
+    background-color: white;
+    border-radius: 10px;
+    margin: 6px auto;
+    transition: all .3s ease-in-out; }
+  .hamburger.isActive .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg); }
+  .hamburger.isActive .line:nth-child(2) {
+    opacity: 0; }
+  .hamburger.isActive .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg); }
+
+.hamburger__altMenuContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all .4s;
+  background-color: black;
+  height: 0;
+  width: 0;
+  border-radius: 50%;
+  z-index: -1; }
+
+.altMenuItems {
+  pointer-events: none;
+  display: none;
+  z-index: 5;
+  color: white;
+  position: absolute;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+  font-size: 6rem; }
+  .altMenuItems a {
+    color: white;
+    text-decoration: none; }
+
+.altMenuItems--shown {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; }
+
+li.nav__mobileMenuItem {
+  animation-name: shiftShowMobileMenu;
+  animation-duration: .3s;
+  animation-fill-mode: backwards;
+  width: 100%; }
+  li.nav__mobileMenuItem a {
+    pointer-events: all; }
+
+.handCraftedSites {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15rem; }
+  .handCraftedSites__image {
+    display: block;
+    width: 50%;
+    margin: auto; }
+  .handCraftedSites__image-container {
+    width: 50%; }
+  .handCraftedSites__text {
+    color: white;
+    width: 50%;
+    padding: 0 8rem; }
+  .handCraftedSites__subheader {
+    font-size: 5rem;
+    margin-bottom: 3rem; }
+  .handCraftedSites__description {
+    font-size: 2rem; }
+
+.about {
+  background-color: white;
+  padding: 10rem 0;
+  background-color: #1e8c75; }
+  .about__header {
+    text-align: center; }
+  .about__text-and-image {
+    display: flex;
+    align-items: center; }
+  .about__text-container {
+    width: 50%; }
+  .about__text {
+    width: 65%;
+    margin: auto;
+    font-size: 2rem; }
+  .about__image-container {
+    width: 50%; }
+  .about__image {
+    width: 65%;
+    display: block;
+    margin: auto; }
+  .about__subheader {
+    width: 65%;
+    margin: auto;
+    font-size: 5rem; }
+
+.services {
+  display: flex;
+  justify-content: center;
+  background-color: white; }
+  .services__service {
+    width: 33.33%;
+    text-align: center;
+    padding: 10rem 0; }
+  .services__image {
+    width: 50%; }
+  .services__subheader {
+    color: white; }
+  .services__image-container {
+    margin-bottom: 4rem; }
+
+.ideology {
+  background-color: #1e1e1e;
+  padding-top: 18rem;
+  padding-bottom: 18rem; }
+
+.ideology__row {
+  display: flex; }
+  .ideology__row:not(:last-child) {
+    margin-bottom: 12rem; }
+
+.ideology__column {
+  color: white;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 0 4rem; }
+
+.ideology__mainHeader {
+  font-size: 7rem;
+  text-align: center; }
+
+.ideology__header {
+  font-size: 4.5rem;
+  margin-bottom: 3rem; }
+
+.ideology__text {
+  font-size: 2rem; }
+
+.uncouthSlider {
+  height: 390px;
+  position: relative;
+  overflow-x: hidden;
+  margin-bottom: 7rem; }
+  .uncouthSlider__dotsContainer {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute; }
+
+.sliderTitle {
+  text-align: center;
+  margin: 1em; }
+
+.sliderText {
+  text-align: center; }
+
+.sliderCenterPiece {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.sliderImage {
+  width: 100px; }
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.sliderPrevBtn {
+  position: absolute;
+  top: 50%;
+  transform: translate(calc(1rem), -50%); }
+
+.sliderNextBtn {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translate(calc(-100% - 1rem), -50%); }
+
+i {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 20px; }
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg); }
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg); }
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg); }
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg); }
+
+/* Browser reset - normalize.css is not required anymore */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  /* Override the root font size so rems can be used more easily. 62.5% is what 10px is as a % of 16px */
+  font-size: 62.5%; }
+
+body {
+  /* font-size: 16px; */
+  /* Also set font-family, font-weight, line-height and font colour here. */
+  box-sizing: border-box;
+  /* font-family: 'Gothic A1', sans-serif; */ }
+
+.uncouthSlider {
+  /* background-color: yellow; */
+  height: 390px;
+  position: relative;
+  overflow-x: hidden; }
+
+.sliderTitle {
+  text-align: center;
+  margin: 1em; }
+
+.sliderText {
+  text-align: center; }
+
+.sliderCenterPiece {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.sliderImage {
+  width: 100px; }
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.sliderPrevBtn {
+  position: absolute;
+  top: 50%;
+  transform: translate(calc(1rem), -50%); }
+
+.sliderNextBtn {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translate(calc(-100% - 1rem), -50%); }
+
+i {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 20px; }
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg); }
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg); }
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg); }
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg); }
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 8px; }
+
+.dot.active {
+  background-color: black; }
+
+.sliderProfileContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Gothic A1', sans-serif; }
+
+.sliderProfileContainer img {
+  border-radius: 100px; }
+
+.profileCredentials {
+  /* flex-grow: 1; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px; }
+
+.profileName {
+  font-size: 2.3rem;
+  margin-bottom: 1rem; }
+
+.profileTitle {
+  font-size: 1.6rem;
+  font-weight: 300; }
+
+.sliderQuote {
+  font-size: 3rem;
+  width: 60%;
+  text-align: center;
+  font-family: 'Gothic A1', sans-serif;
+  color: #a0a0a0;
+  font-weight: 300;
+  margin-bottom: 5rem; }
+
+.footer {
+  height: 100px;
+  background-color: #1e1e1e; }
+
+.testimonials {
+  padding: 4rem 0;
+  background-color: white; }
+  .testimonials__heading {
+    text-align: center;
+    font-size: 7rem;
+    margin-bottom: 4rem; }
+
+.techStrip {
+  height: 100px;
+  background-color: white; }
+
+/*
+    HTML
+    CSS
+    SASS
+    JavaScript
+    Swift
+    iOS
+    Node
+*/
+body {
+  background-color: #1e1e1e; }
+
+.something {
+  height: 900rem; }

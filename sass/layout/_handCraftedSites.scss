@@ -1,0 +1,32 @@
+.handCraftedSites {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15rem;
+    // padding: 10rem;
+    // background-color: green;
+
+    &__image {
+        display: block;
+        width: 50%;
+        margin: auto;
+    }
+
+    &__image-container {
+        width: 50%;
+    }
+
+    &__text {
+        color: white;
+        width: 50%;
+        padding: 0 8rem;
+    }
+
+    &__subheader {
+        font-size: 5rem;
+        margin-bottom: 3rem;
+    }
+
+    &__description {
+        font-size: 2rem;
+    }
+}

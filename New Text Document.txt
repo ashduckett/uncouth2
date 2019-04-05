@@ -1,0 +1,22 @@
+This website could cover both iOS apps and websites.
+
+Set the background colour.
+
+
+Build a nav component.
+
+
+Maybe do virtical transitions because it means the scrollbar doesn't jump in and out a little.
+
+The entire nav component should be a self contained component within a nav tag with a nav class.
+
+
+
+If we follow suit we won't have a home link. We will need, however:
+
+News
+Knowledge
+Work
+Current
+Services
+Contact

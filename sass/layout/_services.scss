@@ -1,0 +1,24 @@
+.services {
+    // height: 100px;
+    // background-color: white;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+
+    &__service {
+        width: 33.33%;
+        text-align: center;
+        padding: 10rem 0;
+    }
+    &__image {
+        width: 50%;
+    }
+
+    &__subheader {
+        color: white;
+    }
+
+    &__image-container {
+        margin-bottom: 4rem;
+    }
+}
