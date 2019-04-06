@@ -87,7 +87,8 @@ body {
   .nav__branding {
     color: white;
     font-size: 3rem;
-    font-family: 'Lobster', cursive; }
+    font-family: 'Lobster', cursive;
+    text-decoration: none; }
   .nav__menu {
     list-style-type: none;
     display: flex;
@@ -242,6 +243,9 @@ li.nav__mobileMenuItem {
     width: 65%;
     margin: auto;
     font-size: 5rem; }
+
+.something {
+  height: 100rem; }
 
 .services {
   display: flex;
@@ -474,6 +478,30 @@ i {
 .footer {
   height: 100px;
   background-color: #1e1e1e; }
+
+.transition-swipe-div {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 100%;
+  background-color: black;
+  position: fixed;
+  transition: 1s left;
+  z-index: 100; }
+
+.coverScreen {
+  transition: 1s left;
+  left: 0; }
+
+.afterTransitionCover {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: black;
+  position: fixed;
+  transition: 1s left;
+  z-index: 100; }
 
 .testimonials {
   padding: 4rem 0;

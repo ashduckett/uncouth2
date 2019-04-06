@@ -1,4 +1,38 @@
+// Replace the intitial state. This allows us to pass in a url if the user hits back and comes back to home.
+history.replaceState({
+    url: 'index.php',
+    prettyUrlText: ''
+}, 'Title', '/');
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
+       
+    window.onpopstate = (e) => {
+        const transition = new Transition(0, e.state.url, () => {
+//            console.log('page popped and transitioned')
+        })
+        transition.run();
+    };
+
+    const desktopNavLinks = document.querySelectorAll('.nav__menu-item-link, .nav__branding');
+    desktopNavLinks.forEach((item) => {
+        item.onclick = (e) => {
+            e.preventDefault();
+            
+            const prettyUrl = e.target.getAttribute('data-prettyUrl');
+
+            const transition = new Transition(0, e.target.href, () => {
+                // When we push the state we need to pass the actual url so the page
+                // can be reconstructed on hitting back or forward. Also a prettier URL.
+                history.pushState({
+                    url: e.target.href
+                }, null, prettyUrl);
+            });
+            transition.run();
+        };
+    });
+
     const menuItems = document.querySelectorAll('.nav__menu-item');
     
     menuItems.forEach((menuItem, index) => {

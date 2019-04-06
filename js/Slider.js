@@ -481,9 +481,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var slideTwo = new Slide('Will Carr', 'Digital Project Manager, Conceptai', 'Ash is a fantastic developer and incredibly talented. He is a highly motivated individual often going above and beyond to complete projects. He has been a great asset to the team and it was hard to see him go!', 'will.jpg');
     var slideThree = new Slide('Will Carr', 'Digital Project Manager, Conceptai', 'Ash is a fantastic developer and incredibly talented. He is a highly motivated individual often going above and beyond to complete projects. He has been a great asset to the team and it was hard to see him go!', 'will.jpg');
     
-    
-    var container = document.querySelector('.sliderContainer');
-
-    var slider = new Slider(container, [slideOne, slideTwo, slideThree]);
-    slider.render();
+    if (document.querySelector('.sliderContainer')) {
+        var container = document.querySelector('.sliderContainer');
+        var slider = new Slider(container, [slideOne, slideTwo, slideThree]);
+        slider.render();
+    }
 });

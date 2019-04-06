@@ -1,0 +1,28 @@
+.transition-swipe-div {
+    height: 100vh;
+    width: 100vw; // change
+    top: 0;
+    left: 100%;
+    background-color: black;
+    position: fixed;
+    transition: 1s left;
+    z-index: 100;
+}
+
+.coverScreen {
+    transition: 1s left;
+    // transform: translateX(-100%);
+    left: 0;
+}
+
+.afterTransitionCover {
+    height: 100vh;
+    width: 100vw; // change
+    top: 0;
+    left: 0;
+    background-color: black;
+    position: fixed;
+    transition: 1s left;
+    z-index: 100;
+}
+
