@@ -15,11 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
         transition.run();
     };
 
-    const desktopNavLinks = document.querySelectorAll('.nav__menu-item-link, .nav__branding');
+    const desktopNavLinks = document.querySelectorAll('.nav__menu-item-link, .nav__branding, .nav__mobileMenuItem a');
+    
     desktopNavLinks.forEach((item) => {
+    
         item.onclick = (e) => {
             e.preventDefault();
-            
+
             const prettyUrl = e.target.getAttribute('data-prettyUrl');
 
             const transition = new Transition(0, e.target.href, () => {

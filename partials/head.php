@@ -28,10 +28,10 @@
                 <div class="hamburger__altMenuContainer"></div>
             </li>
             <div class="altMenuItems">
-                <li class="nav__mobileMenuItem"><a href="#">Services</a></li>
-                <li class="nav__mobileMenuItem"><a href="#">Work</a></li>
-                <li class="nav__mobileMenuItem"><a href="#">News</a></li>
-                <li class="nav__mobileMenuItem"><a href="#">Contact</a></li>
+                <li class="nav__mobileMenuItem"><a data-prettyUrl="services" href="services.php">Services</a></li>
+                <li class="nav__mobileMenuItem"><a data-prettyUrl="work" href="work.php">Work</a></li>
+                <li class="nav__mobileMenuItem"><a data-prettyUrl="news" href="news.php">News</a></li>
+                <li class="nav__mobileMenuItem"><a data-prettyUrl="contact" href="contact.php">Contact</a></li>
             </div>
         </ul>
     </nav>
