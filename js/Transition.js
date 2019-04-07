@@ -6,25 +6,6 @@ class Transition {
         this.url = url;
 
         this.callback = callback;
-        // this.prettyUrlText = prettyUrlText;
-
-        
-        // window.addEventListener('popstate', (evt) => {
-        //     console.log(evt)
-
-        //     if (this.url == null) {
-        //         this.url = 'index.php';
-        //     } else {
-        //         console.log(this)
-        //         this.url = evt.state.url;
-        //     }
-        //     this.prettyUrlText = evt.state.prettyUrlText;
-        //     this.run();
-        // });
-
-        
-        
-
     }
 
     run() {
@@ -46,6 +27,8 @@ class Transition {
                 swipingDiv.addEventListener('webkitTransitionEnd', () => {
                     var xhr = new XMLHttpRequest();
                     xhr.open('GET', this.url);
+
+                    console.log(this.url)
                     xhr.onload = () => {
                         if (xhr.status === 200) {
                             let parsedDocument = new DOMParser().parseFromString(xhr.responseText, 'text/html');
@@ -70,11 +53,6 @@ class Transition {
 
                             document.querySelector('.afterTransitionCover').addEventListener('webkitTransitionEnd', (evt) => {
                                 evt.target.parentNode.removeChild(evt.target);
-                                // console.log(this.url)
-                                // history.pushState({
-                                //     url: this.url,
-                                //     prettyUrlText: this.prettyUrlText
-                                // }, 'Title', `/${this.prettyUrlText}`);
                                 this.callback();
                             });
                         }

@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule   work          work.php
+RewriteRule   services      services.php
+RewriteRule   news          news.php
+RewriteRule   contact       contact.php
